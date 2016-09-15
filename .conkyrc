@@ -1,0 +1,216 @@
+# Conky configuration
+background yes
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+xftfont sans:size=6:bold
+
+# Text alpha when using Xft
+xftalpha 0.8
+
+#Print everything to console?
+out_to_console no
+
+# Update interval in seconds
+update_interval 2
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+
+# If own_window is yes, you may use type normal, desktop or override
+own_window_type normal
+
+# Use pseudo transparency with own_window?
+own_window_transparent no
+
+# If own_window_transparent is set to no, you can set the background colour here
+own_window_colour black
+
+# true transparency
+ own_window_argb_visual yes
+ own_window_argb_value 200
+
+
+# If own_window is yes, these window manager hints may be used
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 210 1500
+
+# Maximum width of window
+maximum_width 265
+
+# Draw shades?
+draw_shades no
+
+text_buffer_size 10000
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Draw borders around graphs
+draw_graph_borders no
+
+# Stippled borders?
+stippled_borders 1
+
+# Default colors and also border colors
+#default_color black
+#default_shade_color black
+
+# Text alignment, other possible values are commented
+#alignment top_left
+#alignment top_right
+alignment bottom_left
+#alignment bottom_right
+#alignment none
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 5
+gap_y 5  
+#To hide from tranparent window borders.
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about? This only affects certain objects.
+use_spacer none
+
+# Maximum number of special things, e.g. fonts, offsets, aligns, etc.
+#max_specials 550
+
+# Maximum size of buffer for user text, i.e. below TEXT line.
+max_user_text 16384
+
+TEXT
+
+${color #ccaa77}${font Poky:size=15}x${color #ccaa77}${font WW2 BlackltrAlt:size=20} Engine Parameters $stippled_hr
+${voffset 12}${font Antique Type:size=8}${voffset -50}
+${voffset 18}${color #993300}${color #993300}$sysname ${color #996633} $kernel $machine${voffset -18}
+${voffset 18}${color #993300}Host:  ${color #996633}${nodename}  ${color #993300}Users: ${color #996633}$user_names 
+${voffset 4}${color #993300}Uptime:${color #996633} $uptime ${color #993300}Load:${color #996633} $loadavg${voffset -18}
+${voffset 18}${color #993300}CPU: ${color #996633}${cpubar 7,161} $cpu%
+${voffset -27}${goto 500}
+${voffset 3}${color #993300}${font Poky:size=15}${cpugraph 15,213 993300 996633 ff0000 00ff00 0000ff}${font Antique Type:size=8}
+${color #993300}Processes: ${color #996633}$processes ${color #993300}CPU frequency: ${color #996633}${freq 1}MHz
+#${color #993300}Swap: ${color #996633}$swap/$swapmax - $swapperc% ${alignr 2}${swapbar 7,40}
+${color #993300}RAM: ${color #996633}${membar 6,161} $memperc% 
+$alignr$mem/$memmax
+${color #993300}$stippled_hr
+${color #ccaa77}${font Poky:size=15}a${color #ccaa77}${font WW2 BlackltrAlt:size=20} Top Processes $stippled_hr ${font Antique Type:size=8}
+${color #993300}CPU ::. ${goto 114}PID${goto 146}CPU%${goto 183}MEM%
+${font Inconsolata:size=8.5}${color #996633}${top name 1} ${goto 105}${top pid 1}${goto 138}${top cpu 1}${goto 179}${top mem 1}
+${color #996633}${top name 2} ${goto 105}${top pid 2}${goto 138}${top cpu 2}${goto 179}${top mem 2}
+${color #996633}${top name 3} ${goto 105}${top pid 3}${goto 138}${top cpu 3}${goto 179}${top mem 3}
+${color #996633}${top name 4} ${goto 105}${top pid 4}${goto 138}${top cpu 4}${goto 179}${top mem 4}
+${color #996633}${top name 5} ${goto 105}${top pid 5}${goto 138}${top cpu 5}${goto 179}${top mem 5}
+${color #996633}${top name 6} ${goto 105}${top pid 6}${goto 138}${top cpu 6}${goto 179}${top mem 6}
+#${color #996633}${top name 7} ${goto 105}${top pid 7}${goto 138}${top cpu 7}${goto 179}${top mem 7}
+#${color #996633}${top name 8} ${goto 105}${top pid 8}${goto 138}${top cpu 8}${goto 179}${top mem 8}
+#${color #996633}${top name 9} ${goto 105}${top pid 9}${goto 138}${top cpu 9}${goto 179}${top mem 9}
+${font Antique Type:size=8}${color #993300}Memory ::.
+${font Inconsolata:size=8.5}${color #996633}${top_mem name 1} ${goto 105}${top_mem pid 1}${goto 138}${top_mem cpu 1}${goto 179}${top_mem mem 1}
+${color #996633}${top_mem name 2} ${goto 105}${top_mem pid 2}${goto 138}${top_mem cpu 2}${goto 179}${top_mem mem 2}
+${color #996633}${top_mem name 3} ${goto 105}${top_mem pid 3}${goto 138}${top_mem cpu 3}${goto 179}${top_mem mem 3}
+${color #996633}${top_mem name 4} ${goto 105}${top_mem pid 4}${goto 138}${top_mem cpu 4}${goto 179}${top_mem mem 4}
+${color #996633}${top_mem name 5} ${goto 105}${top_mem pid 5}${goto 138}${top_mem cpu 5}${goto 179}${top_mem mem 5}
+${color #996633}${top_mem name 6} ${goto 105}${top_mem pid 6}${goto 138}${top_mem cpu 6}${goto 179}${top_mem mem 6}
+#${color #996633}${top_mem name 7} ${goto 105}${top_mem pid 7}${goto 138}${top_mem cpu 7}${goto 179}${top_mem mem 7}
+#${color #996633}${top_mem name 8} ${goto 105}${top_mem pid 8}${goto 138}${top_mem cpu 8}${goto 179}${top_mem mem 8}
+#${color #996633}${top_mem name 9} ${goto 105}${top_mem pid 9}${goto 138}${top_mem cpu 9}${goto 179}${top_mem mem 9}
+${font Antique Type:size=8}${color #993300}$stippled_hr
+${color #ccaa77}${font Poky:size=15}f${color #ccaa77}${font WW2 BlackltrAlt:size=20} Storage Devices $stippled_hr ${color #996633}${font Inconsolata:size=8.5}
+${exec df -h | grep "/dev/sd" | awk '{ printf "%-20s%s/%s(%s)\n", $6, $3, $2, $5 }'}${font Droid Serif:size=8}
+${color #993300}$stippled_hr
+${color #ccaa77}${font Poky:size=15}w${color #ccaa77}${font WW2 BlackltrAlt:size=20} Ætherspace Link $stippled_hr ${font Antique Type:size=8}
+${color #993300}Down:${color #996633} ${downspeed wlp8s0} ${color #993300}
+${voffset -15}${offset 145}Up:${color #996633} ${upspeed wlp8s0} 
+${color #993300}${downspeedgraph wlp8s0 10,105 993300 996633} ${alignr}${color #993300}${upspeedgraph eth0 10,105 993300 996633}
+${voffset 8}${color #993300}Address: ${color #996633}${addr wlp8s0} 
+#${addr wlp8s0}
+# for true IP:
+#${execi 3600 wget -O - http://whatismyip.org/ | tail} 
+${voffset -15}${offset 135}${color #993300}TCP Connections: ${color #996633}${tcp_portmon 1 65535 count}
+#${color #993300}$stippled_hr
+#${color #ccaa77}${font OpenLogos:size=20}J${color #ccaa77}${font WW2 BlackltrAlt:size=20} Atmospheric Readings $stippled_hr${font Antique Type:size=9}
+##$alignc${color #993300}Current Conditions
+#${font Antique Type:size=8}${color #996633}${execi 3600 conkyForecastWU --datatype=CT}
+#${color #996633}${font ConkyWeather:size=32}${execi 3600 conkyForecastWU --datatype=WF}${font Antique Type:size=8}
+#${voffset -45}${offset 50} ${color #996633}${execi 3600 conkyForecastWU --datatype=HT --imperial} (${execi 3600 conkyForecastWU --datatype=LT --imperial})
+#${offset 50} ${color #996633}${execi 3600 conkyForecastWU --datatype=WS --imperial} (${execi 3600 conkyForecastWU --datatype=WD})
+#${offset 50} ${color #996633}${execi 3600 conkyForecastWU --datatype=HM}
+#${voffset 5}${color #993300}Sunrise: ${color #996633}${execi 3600 conkyForecastWU --datatype=SR} 
+#${color #993300}Daylight: ${color #996633}${execi 3600 conkyForecastWU --datatype=DL} 
+#${color #993300}Sunset:  ${color #996633}${execi 3600 conkyForecastWU --datatype=SS}
+#${voffset -45}${offset 110}${color #993300}Moon: ${color #996633}${execi 600 conkyForecastWU --datatype=MP}
+#${offset 157}${font Moon Phases:size=22}${execi 3600 conkyForecastWU --datatype=MP}${font Antique Type:size=8}
+##${font Antique Type:size=9}$alignc${color #993300}Forecast       
+#${offset 40}${color #996633}${execi 3600 conkyForecastWU --datatype=DW --shortweekday --startday=1 --endday=3 --spaces=14}
+#${offset 24}${color #996633}${font ConkyWeather:size=20}${execi 3600 conkyForecastWU --datatype=WF --startday=1 --endday=3 --spaces=7}${font Antique Type:size=8}
+#${voffset -32}${color #996633}${offset 55}${execi 3600 conkyForecastWU --datatype=HT --imperial --startday=1 --endday=1}${offset 50}${execi 3600 conkyForecastWU --datatype=HT --imperial --startday=2 --endday=2}${offset 50}${execi 3600 conkyForecastWU --datatype=HT --imperial --startday=3 --endday=3}
+#${offset 55}${execi 3600 conkyForecastWU --datatype=LT --imperial --startday=1 --endday=1 }${offset 50}${execi 3600 conkyForecastWU --datatype=LT --imperial --startday=2 --endday=2}${offset 50}${execi 3600 conkyForecastWU --datatype=LT --imperial --startday=3 --endday=3}
+#${font Antique Type:size=9}
+${color #993300}$stippled_hr
+${color #ccaa77}${font Poky:size=15}d${color #ccaa77}${font WW2 BlackltrAlt:size=20} Date and Time $stippled_hr ${font Antique Type:size=8}
+${font Inconsolata:size=8.5}${color #996633}
+${color 993300}${time %a,} ${time %B %e %G}
+${color #996633}${time %H:%M:%S}
+
+${color #993300}$stippled_hr
+${color #ccaa77}${font Poky:size=15}b${color #ccaa77}${font WW2 BlackltrAlt:size=20} Hacker News $stippled_hr ${font Antique Type:size=8}
+${font Inconsolata:size=8.5}${color #996633}
+${execi 1800 getHackerNews 0}
+${execi 1800 getHackerNews 1}
+${execi 1800 getHackerNews 2}
+${execi 1800 getHackerNews 3}
+${execi 1800 getHackerNews 4}
+${execi 1800 getHackerNews 5}
+${execi 1800 getHackerNews 6}
+${execi 1800 getHackerNews 7}
+${execi 1800 getHackerNews 8}
+${execi 1800 getHackerNews 9}
+${execi 1800 getHackerNews 10}
+${execi 1800 getHackerNews 11}
+${execi 1800 getHackerNews 12}
+${execi 1800 getHackerNews 13}
+${execi 1800 getHackerNews 14}
+${execi 1800 getHackerNews 15}
+${execi 1800 getHackerNews 16}
+${execi 1800 getHackerNews 17}
+${execi 1800 getHackerNews 18}
+${execi 1800 getHackerNews 19}
+${execi 1800 getHackerNews 21}
+${execi 1800 getHackerNews 22}
+${color #993300}$stippled_hr
+#${color #ccaa77}${font OpenLogos:size=20}J${color #ccaa77}${font WW2 BlackltrAlt:size=20} Calendar $stippled_hr${font Antique Type:size=9}
+#${font Inconsolata:size=15}${color #993300}
+#${execpi 60 DJS=`date +%_d`; cal | sed '1d' | sed '/./!d' | sed 's/$/ /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^/ /' | sed /" $DJS "/s/" $DJS "/" "'${color #996633}'"$DJS"'${color #996633}'" "/}${font}
+
+
